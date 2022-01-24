@@ -10,11 +10,11 @@ const routes: Routes = [
     path: '',
     children: [
       {
-       path: 'barra',
+       path: 'barras',
        component: BarrasComponent
       },
       {
-        path: 'barra-doble',
+        path: 'barras-doble',
         component: BarrasDobleComponent
       },
       {
@@ -27,7 +27,7 @@ const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: 'barra'
+        redirectTo: 'barras'
       }
     ]
 
