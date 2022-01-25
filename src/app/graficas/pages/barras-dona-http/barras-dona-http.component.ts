@@ -31,14 +31,22 @@ export class BarrasDonaHttpComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.gs.getUsuariosredesSociales()
-      .subscribe({
-        next: data => {
-          //Extraemos todas las keys del objeto recibido
-          const labels = Object.keys(data);
-          this.doughnutChartData.labels = labels; //asignamos los labels
+    // this.gs.getUsuariosredesSociales()
+    //   .subscribe({
+    //     next: data => {
+    //       //Extraemos todas las keys del objeto recibido
+    //       const labels = Object.keys(data);
+    //       this.doughnutChartData.labels = labels; //asignamos los labels
 
-          const values = Object.values(data);
+    //       const values = Object.values(data);
+    //       this.doughnutChartData.datasets[0].data = values;
+    //     }
+    //   })
+    this.gs.getUsuariosredesSocialesDonaData()
+      .subscribe({
+        //desestructurando la información recibida
+        next: ({ labels, values }) => {
+          this.doughnutChartData.labels = labels
           this.doughnutChartData.datasets[0].data = values;
         }
       })
